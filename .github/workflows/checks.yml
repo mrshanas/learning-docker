@@ -5,7 +5,7 @@ on: [push]
 
 jobs:
   test-lint:
-    name: Test and test-lint
+    name: Test and Lint
     runs-on: ubuntu-22.04
     steps:
       - name: Login to Dockerhub
@@ -16,6 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
-        run: docker-compose run --rm app sh -c "python manage.py test"
+        run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
       - name: Lint
         run: docker-compose run --rm app sh -c "flake8"
