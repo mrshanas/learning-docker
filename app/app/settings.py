@@ -31,6 +31,9 @@ INSTALLED_APPS = [
 
     # local
     'core',
+
+    # 3rd party
+    'rest_framework'
 ]
 
 AUTH_USER_MODEL = 'core.User'
